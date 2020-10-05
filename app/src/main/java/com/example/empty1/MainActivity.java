@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final int numInt =(int) (1+(Math.random() * 10));
+        final int numInt =(int) (1+(Math.random() * 100));
         //final String num = (String) numInt;
 
         final Button button = findViewById(R.id.toastButton);
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 final TextInputEditText tiet = findViewById(R.id.textInput1);
+
                 final int inputNum = Integer.parseInt(tiet.getText().toString());
 
 
