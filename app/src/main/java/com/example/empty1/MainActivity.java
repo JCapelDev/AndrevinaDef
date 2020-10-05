@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 final TextInputEditText tiet = findViewById(R.id.textInput1);
+                final int inputNum = Integer.parseInt(tiet.getText().toString());
+
 
 
                 if(Integer.parseInt(tiet.getText().toString())==numInt){
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
+                    tiet.setText("");
                 }else if(Integer.parseInt(tiet.getText().toString())>numInt){
                     
 
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
-
+                    tiet.setText("");
 
 
                 }else if(Integer.parseInt(tiet.getText().toString())<numInt){
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
+                    tiet.setText("");
                 }
 
 
