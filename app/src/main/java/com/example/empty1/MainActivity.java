@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final String num = "3";
+        final int numInt =(int) (1+(Math.random() * 10));
+        //final String num = (String) numInt;
 
         final Button button = findViewById(R.id.toastButton);
 
@@ -25,24 +26,33 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
                 final TextInputEditText tiet = findViewById(R.id.textInput1);
-                if(tiet.getText().toString().contentEquals((String) num)){
+
+
+                if(Integer.parseInt(tiet.getText().toString())==numInt){
                     Context context = getApplicationContext();
                     CharSequence text = "Eureka";
                     int duration = Toast.LENGTH_SHORT;
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
-                }else{
+                }else if(Integer.parseInt(tiet.getText().toString())>numInt){
                     
-                    /*
+
                     Context context = getApplicationContext();
-                    CharSequence text = "Numero incorrecte";
+                    CharSequence text = "El numero donat es mes gran que el que es busca";
                     int duration = Toast.LENGTH_SHORT;
 
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
 
 
-                     */
+
+                }else if(Integer.parseInt(tiet.getText().toString())<numInt){
+                    Context context = getApplicationContext();
+                    CharSequence text = "El numero donat es mes petit que el que es busca";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
                 }
 
 
