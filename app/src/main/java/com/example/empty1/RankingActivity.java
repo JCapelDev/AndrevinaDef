@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import static com.example.empty1.MainActivity.aL;
+
 public class RankingActivity extends AppCompatActivity {
 
     @Override
@@ -21,10 +23,14 @@ public class RankingActivity extends AppCompatActivity {
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         // Capture the layout's TextView and set the string as its text
-        /*
-        TextView textView = findViewById(R.id.txtLayout);
-        textView.setText(message);
-        */
+
+        TextView textView = findViewById(R.id.textView2);
+        aL.add(message);
+        for (String array:aL) {
+            textView.setText(array);
+        }
+
+
 
     }
     public void sendMessage(View view) {

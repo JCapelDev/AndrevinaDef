@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".RankingActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtLayout"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="66dp">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="387dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView" />
-    </com.google.android.material.textfield.TextInputLayout>
-
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
@@ -32,4 +17,17 @@
         android:text="Tornar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="123dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:lineSpacingExtra="8sp"
+        android:text="           Ranking"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047" />
 </androidx.constraintlayout.widget.ConstraintLayout>
