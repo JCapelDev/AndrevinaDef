@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.setTitle("Andrevina el numero");
 
         final Button button = findViewById(R.id.toastButton);
         final EditText et = findViewById(R.id.editTextNumber);
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                     et.setText("");
+                    aL.add(new record("Jugador",0.0, cont));
+                    aL.add(new record("Jugador2",0.1, cont));
 
                 }else if(inputNum>numInt){
                     
