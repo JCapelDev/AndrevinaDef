@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "Mensaje";
     int cont=0;
     int inputNum ;
+    String enviar="enviar";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,19 +100,19 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-
+/*
     public class rankInsc extends DialogFragment{
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the Builder class for convenient dialog construction
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage(R.string.rankInsc)
-                    .setPositiveButton(R.string.fire, new DialogInterface.OnClickListener() {
+            builder.setMessage(R.string.enviar)
+                    .setPositiveButton(R.string.enviar, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             // FIRE ZE MISSILES!
                         }
                     })
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    .setNegativeButton(R.string.enviar, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             // User cancelled the dialog
                         }
@@ -123,6 +124,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+*/
 }
 
