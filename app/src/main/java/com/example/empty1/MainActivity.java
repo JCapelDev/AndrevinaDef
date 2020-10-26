@@ -23,7 +23,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.io.LineNumberInputStream;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     static ArrayList<record> aL = new ArrayList<record>();
     final int numInt =(int) (1+(Math.random() * 100));
     public static final String EXTRA_MESSAGE = "Mensaje";
@@ -31,12 +31,13 @@ public class MainActivity extends AppCompatActivity {
     int inputNum ;
     String enviar="enviar";
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.setTitle("Andrevina el numero");
 
         final Button button = findViewById(R.id.toastButton);
+        final Button btnRanking  = findViewById(R.id.btnRanking);
         final EditText et = findViewById(R.id.editTextNumber);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -57,12 +58,15 @@ public class MainActivity extends AppCompatActivity {
                     et.setText("");
                     aL.add(new record("Jugador",0.0, cont));
                     aL.add(new record("Jugador2",0.1, cont));
+                    launchRankInsc();
+
+
 
                 }else if(inputNum>numInt){
                     
 
                     Context context = getApplicationContext();
-                    CharSequence text = "El numero donat es mes gran que el que es busca ";
+                    CharSequence text = "El numero donat es mes gran que el que es busca " + numInt;
                     int duration = Toast.LENGTH_SHORT;
 
                     Toast toast = Toast.makeText(context, text, duration);
@@ -88,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+
+
 }
 
     /** Called when the user taps the Send button */
@@ -100,30 +109,39 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-/*
-    public class rankInsc extends DialogFragment{
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the Builder class for convenient dialog construction
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage(R.string.enviar)
-                    .setPositiveButton(R.string.enviar, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // FIRE ZE MISSILES!
-                        }
-                    })
-                    .setNegativeButton(R.string.enviar, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            // User cancelled the dialog
-                        }
-                    });
-            // Create the AlertDialog object and return it
-            return builder.create();
-        }
+
+    public void launchRankInsc() {
+        // 1. Instantiate an <code><a href="/reference/android/app/AlertDialog.Builder.html">AlertDialog.Builder</a></code> with its constructor
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+// 2. Chain together various setter methods to set the dialog characteristics
+        builder.setMessage("Add your name").setTitle("Registry");
+        final EditText input= new EditText(this);
+        builder.setView(input);
+
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(MainActivity.this, RankingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //Close
+            }
+        });
+
+// 3. Get the <code><a href="/reference/android/app/AlertDialog.html">AlertDialog</a></code> from <code><a href="/reference/android/app/AlertDialog.Builder.html#create()">create()</a></code>
+        builder.show();
+
+}
 
 
 
-    }
-*/
+
+
 }
 
