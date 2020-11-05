@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity{
     static ArrayList<record> aL = new ArrayList<record>();
-    final int numInt =(int) (1+(Math.random() * 100));
+     int numInt =(int) (1+(Math.random() * 100));
     public static final String EXTRA_MESSAGE = "Mensaje";
     int cont=0;
     int inputNum ;
@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity{
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                     et.setText("");
-                    aL.add(new record("Jugador",0.0, cont));
-                    aL.add(new record("Jugador2",0.1, cont));
                     launchRankInsc();
+                    cont=0;
+                    numInt =(int) (1+(Math.random() * 100));
 
 
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity{
                     
 
                     Context context = getApplicationContext();
-                    CharSequence text = "El numero donat es mes gran que el que es busca " + numInt;
+                    CharSequence text = "El numero donat es mes gran que el que es busca " ;
                     int duration = Toast.LENGTH_SHORT;
 
                     Toast toast = Toast.makeText(context, text, duration);
@@ -122,6 +122,7 @@ public class MainActivity extends AppCompatActivity{
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                aL.add(new record(String.valueOf(input.getText()),0.0, cont));
                 Intent intent = new Intent(MainActivity.this, RankingActivity.class);
                 startActivity(intent);
             }
