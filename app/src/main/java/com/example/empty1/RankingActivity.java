@@ -25,11 +25,11 @@ public class RankingActivity extends AppCompatActivity {
         // Capture the layout's TextView and set the string as its text
 
         TextView textView = findViewById(R.id.textView2);
-       /* aL.add(message);
+        aL.add(message);
         for (String array:aL) {
             textView.setText(array);
         }
-*/
+
 
 
     }
