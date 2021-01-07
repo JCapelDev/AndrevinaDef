@@ -1,5 +1,7 @@
 package com.example.empty1;
 
+import android.net.Uri;
+
 import java.security.PrivateKey;
 
 public class record{
@@ -7,15 +9,16 @@ public class record{
 
     }
 
-    public record(String name, Double time , Integer points) {
-        Name = name;
-        Time = time;
-        Points = points;
+    public record(String name , Integer points, Uri fileUri) {
+        this.setName(name);
+        this.setPoints(points);
+        this.setFileUri(fileUri);
     }
 
     private String Name;
     private Integer Points;
     private Double Time;
+    private Uri fileUri;
 
 
 
@@ -43,5 +46,11 @@ public class record{
         Time = time;
     }
 
+    public Uri getFileUri() {
+        return fileUri;
+    }
 
+    public void setFileUri(Uri fileUri) {
+        this.fileUri = fileUri;
+    }
 }

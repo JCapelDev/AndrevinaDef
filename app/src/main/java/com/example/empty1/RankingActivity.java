@@ -5,7 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -18,25 +23,33 @@ public class RankingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
-        // Get the Intent that started this activity and extract the string
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        final Button b = findViewById(R.id.btnBack);
+        final ListView l = findViewById(R.id.lstRanking);
 
-        // Capture the layout's TextView and set the string as its text
+        ArrayAdapter<record> adapter = new ArrayAdapter<record>(this, R.layout.lst_item, MainActivity.aL) {
+            @Override
+            public View getView(int pos, View convertView, ViewGroup container)
+            {
+                if( convertView==null ) {
+                    convertView = getLayoutInflater().inflate(R.layout.lst_item, container, false);
+                }
+                ((TextView) convertView.findViewById(R.id.txtvName)).setText(getItem(pos).getName());
+                ((TextView) convertView.findViewById(R.id.txtvScore)).setText(("Intents: " + getItem(pos).getPoints()));
+                ((ImageView) convertView.findViewById(R.id.imageView)).setImageURI(getItem(pos).getFileUri());
+                return convertView;
+            }
+        };
 
-        TextView textView = findViewById(R.id.textView2);
-        aL.add(message);
-        for (String array:aL) {
-            textView.setText(array);
-        }
+        l.setAdapter(adapter);
 
-
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(RankingActivity.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
-    public void sendMessage(View view) {
-        // Do something in response to button
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
 
-    }
 }
